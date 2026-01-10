@@ -18,7 +18,6 @@ body {
   color: #e8f4f8;
 }
 
-/* Slide container */
 .slide-container {
   position: relative;
   width: 100vw;
@@ -40,7 +39,6 @@ body {
   opacity: 1;
 }
 
-/* Canvas backgrounds */
 canvas {
   position: absolute;
   top: 0;
@@ -49,7 +47,6 @@ canvas {
   height: 100%;
 }
 
-/* Text content styling */
 .content {
   position: relative;
   z-index: 10;
@@ -76,7 +73,7 @@ h2 {
   text-shadow: 0 2px 15px rgba(160, 216, 232, 0.3);
 }
 
-p, li {
+p {
   font-size: 2rem;
   line-height: 1.6;
   margin: 15px 0;
@@ -95,7 +92,6 @@ p, li {
 .text-line:nth-child(4) { animation-delay: 1.1s; }
 .text-line:nth-child(5) { animation-delay: 1.4s; }
 
-/* Navigation arrows */
 .nav-arrow {
   position: fixed;
   top: 50%;
@@ -117,7 +113,6 @@ p, li {
 .nav-arrow.left { left: 40px; }
 .nav-arrow.right { right: 40px; }
 
-/* Slide indicator */
 .slide-indicator {
   position: fixed;
   bottom: 40px;
@@ -141,7 +136,6 @@ p, li {
   transform: scale(1.3);
 }
 
-/* Animations */
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -164,17 +158,6 @@ p, li {
   }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Process sections for slide 5 */
 .process-container {
   display: flex;
   justify-content: space-around;
@@ -195,250 +178,538 @@ p, li {
 .process-section:nth-child(2) { animation-delay: 0.5s; }
 .process-section:nth-child(3) { animation-delay: 0.8s; }
 
-.process-visual {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto 30px;
-  position: relative;
-}
-
-/* Highlight keywords */
 .highlight {
   color: #7fff7f;
   text-shadow: 0 0 15px rgba(127, 255, 127, 0.6);
   font-weight: 600;
 }
 
-/* Menu grid styling */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
+.accent-blue {
+  color: #5ac8fa;
+  text-shadow: 0 0 12px rgba(90, 200, 250, 0.5);
 }
 
-.menu-section {
-  background: rgba(10, 30, 50, 0.6);
-  border: 1px solid rgba(100, 200, 255, 0.3);
-  border-radius: 15px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
+.accent-yellow {
+  color: #ffd966;
+  text-shadow: 0 0 12px rgba(255, 217, 102, 0.5);
+}
+
+/* Menu Slide Styling */
+.menu-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 40px 40px;
+  overflow: hidden;
+}
+
+.menu-title {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  text-shadow: 0 4px 25px rgba(127, 255, 180, 0.6);
+  opacity: 0;
+  animation: fadeInScale 1s ease forwards;
+}
+
+.menu-scroll-container {
+  width: 100%;
+  max-width: 1600px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 200, 255, 0.5) rgba(20, 40, 60, 0.3);
+}
+
+.menu-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.menu-scroll-container::-webkit-scrollbar-track {
+  background: rgba(20, 40, 60, 0.3);
+  border-radius: 4px;
+}
+
+.menu-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(100, 200, 255, 0.5);
+  border-radius: 4px;
+}
+
+.menu-grid {
+  display: flex;
+  gap: 30px;
+  padding: 10px;
+  min-width: min-content;
+}
+
+.menu-category {
+  min-width: 320px;
+  max-width: 350px;
+  background: linear-gradient(145deg, rgba(15, 35, 65, 0.92), rgba(25, 55, 95, 0.88));
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  animation: slideInUp 0.8s ease forwards;
   transition: all 0.3s ease;
 }
 
-.menu-section:hover {
-  border-color: rgba(100, 200, 255, 0.6);
-  background: rgba(10, 40, 60, 0.7);
+.menu-category:nth-child(1) { animation-delay: 0.1s; }
+.menu-category:nth-child(2) { animation-delay: 0.2s; }
+.menu-category:nth-child(3) { animation-delay: 0.3s; }
+.menu-category:nth-child(4) { animation-delay: 0.4s; }
+.menu-category:nth-child(5) { animation-delay: 0.5s; }
+.menu-category:nth-child(6) { animation-delay: 0.6s; }
+.menu-category:nth-child(7) { animation-delay: 0.7s; }
+.menu-category:nth-child(8) { animation-delay: 0.8s; }
+.menu-category:nth-child(9) { animation-delay: 0.9s; }
+.menu-category:nth-child(10) { animation-delay: 1.0s; }
+
+.menu-category:hover {
   transform: translateY(-5px);
+  border-color: rgba(127, 255, 180, 0.6);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
 }
 
-.menu-section h2 {
-  font-size: 1.4rem;
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-title {
+  font-size: 1.8rem;
   color: #7fff7f;
-  margin-bottom: 15px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(127, 255, 127, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(127, 255, 180, 0.4);
+  text-shadow: 0 0 15px rgba(127, 255, 127, 0.5);
 }
 
-.menu-section p {
-  font-size: 1rem;
-  margin: 8px 0;
-  color: #e8f4f8;
-  opacity: 0.9;
+.dish-item {
+  margin-bottom: 18px;
+  padding: 12px;
+  background: rgba(10, 25, 45, 0.4);
+  border-radius: 10px;
+  transition: all 0.25s ease;
 }
 
-.menu-section p:hover {
-  color: #7fff7f;
-  opacity: 1;
+.dish-item:hover {
+  background: rgba(20, 40, 70, 0.6);
   transform: translateX(5px);
-  transition: all 0.2s ease;
+}
+
+.dish-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #e8f4f8;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dish-desc {
+  font-size: 0.95rem;
+  color: #a0d8e8;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Fun Fact Slide */
+.funfact-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 80px;
+  text-align: center;
+}
+
+.funfact-badge {
+  font-size: 2.5rem;
+  color: #ffd966;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInScale 0.8s ease forwards;
+  text-shadow: 0 0 20px rgba(255, 217, 102, 0.7);
+}
+
+.funfact-text {
+  font-size: 2.8rem;
+  line-height: 1.5;
+  max-width: 1400px;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.funfact-year {
+  color: #5ac8fa;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(90, 200, 250, 0.6);
+}
+
+.funfact-person {
+  color: #ff6b9d;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 107, 157, 0.5);
+}
+
+.funfact-highlight {
+  color: #7fff7f;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(127, 255, 127, 0.6);
 }
 </style>
 </head>
 <body>
 
 <div class="slide-container">
-  <!-- Slide 1: Introduction -->
+  <!-- Slide 1 -->
   <div class="slide active" id="slide1">
     <canvas id="canvas1"></canvas>
     <div class="content">
-      <h1 class="text-line">Energy is Everywhere.</h1>
-      <p class="text-line">At school,</p>
-      <p class="text-line">At home,</p>
-      <p class="text-line">In the car, bus, train,</p>
-      <p class="text-line">In your Shopping mall, or any building.</p>
+      <h1 class="text-line">Energy is <span class="highlight">Everywhere</span></h1>
+      <p class="text-line">At <span class="accent-blue">school</span>,</p>
+      <p class="text-line">At <span class="accent-blue">home</span>,</p>
+      <p class="text-line">In the car, bus, <span class="accent-yellow">train</span>,</p>
+      <p class="text-line">In your shopping mall, or any <span class="highlight">building</span>.</p>
     </div>
   </div>
 
-  <!-- Slide 2: A Year Ago -->
+  <!-- Slide 2 -->
   <div class="slide" id="slide2">
     <canvas id="canvas2"></canvas>
     <div class="content">
       <h1 class="text-line">A Year Ago</h1>
-      <p class="text-line">Questions,</p>
-      <p class="text-line">How so much lights ?</p>
-      <p class="text-line">How so much heaters ?</em></p>
-      <p class="text-line">How do we make so much ?</p>
+      <p class="text-line"><span class="accent-yellow">Questions</span>,</p>
+      <p class="text-line">How so much <span class="highlight">lights</span>?</p>
+      <p class="text-line">How so much <span class="highlight">heaters</span>?</p>
+      <p class="text-line">How do we make <span class="accent-blue">so much</span>?</p>
     </div>
   </div>
 
-  <!-- Slide 3: Green Energy -->
+  <!-- Slide 3 -->
   <div class="slide" id="slide3">
     <canvas id="canvas3"></canvas>
     <div class="content">
-      <h1 class="text-line">Green Energy: Wind & Solar</h1>
-      <p class="text-line">Wind turbines </p>
-      <p class="text-line">Solar panels </p>
-      <p class="text-line">Clean, renewable, growing.</p>
-      <p class="text-line">But that much?</p>
+      <h1 class="text-line">Green Energy: <span class="highlight">Wind & Solar</span></h1>
+      <p class="text-line"><span class="accent-blue">Wind turbines</span></p>
+      <p class="text-line"><span class="accent-yellow">Solar panels</span></p>
+      <p class="text-line">Clean, renewable, <span class="highlight">growing</span>.</p>
+      <p class="text-line">But <span class="accent-blue">that much</span>?</p>
     </div>
   </div>
 
-  <!-- Slide 4: Nuclear Energy -->
+  <!-- Slide 4 -->
   <div class="slide" id="slide4">
     <canvas id="canvas4"></canvas>
     <div class="content">
-      <h1 class="text-line">Nuclear Energy</h1>
-      <p class="text-line">Far more <span class="highlight">powerfull</span>
-      <p class="text-line">More <span class="highlight">efficient</span></p>
-      <p class="text-line">Less <span class="highlight">polluting</span>
-      <p class="text-line">Inexistant <span class="highlight">Carbon emmissions</span>
+      <h1 class="text-line"><span class="highlight">Nuclear</span> Energy</h1>
+      <p class="text-line">Far more <span class="highlight">powerful</span></p>
+      <p class="text-line">More <span class="accent-blue">efficient</span></p>
+      <p class="text-line">Less <span class="accent-yellow">polluting</span></p>
+      <p class="text-line">Inexistant <span class="highlight">carbon emissions</span></p>
     </div>
   </div>
 
-  <!-- Slide 5: Processes -->
+  <!-- Slide 5 -->
   <div class="slide" id="slide5">
     <canvas id="canvas5"></canvas>
     <div class="process-container">
       <div class="process-section">
-        <div class="process-visual" id="fission"></div>
-        <h2>Fission</h2>
-        <p>Heavy atoms split.
+        <h2><span class="highlight">Fission</span></h2>
+        <p>Heavy atoms <span class="accent-yellow">split</span>.</p>
       </div>
       <div class="process-section">
-        <div class="process-visual" id="fusion"></div>
-        <h2>Fusion</h2>
-        <p>Light nuclear combine.
+        <h2><span class="accent-blue">Fusion</span></h2>
+        <p>Light nuclei <span class="highlight">combine</span>.</p>
       </div>
       <div class="process-section">
-        <div class="process-visual" id="enrichment"></div>
-        <h2>Enrichment</h2>
-        <p>Concentrating uranium.
+        <h2><span class="accent-yellow">Enrichment</span></h2>
+        <p>Concentrating <span class="highlight">uranium</span>.</p>
       </div>
     </div>
   </div>
 
-<!-- Slide 6: Word -->
+  <!-- Slide 6 -->
   <div class="slide" id="slide6">
     <canvas id="canvas6"></canvas>
     <div class="content">
-      <h1 class="text-line">Too hard to understand?</h1>
-      <p class="text-line">Museum</p>
-      <p class="text-line">Buffet</p>
-      <p class="text-line">Educative</p>
-      <p class="text-line">Riskless</p>
+      <h1 class="text-line">Too hard to <span class="accent-yellow">understand</span>?</h1>
+      <p class="text-line"><span class="highlight">Museum</span></p>
+      <p class="text-line"><span class="accent-blue">Buffet</span></p>
+      <p class="text-line"><span class="accent-yellow">Educative</span></p>
+      <p class="text-line"><span class="highlight">Riskless</span></p>
     </div>
   </div>
 
-<!-- Slide 7: Restaurant Buffet -->
+  <!-- Slide 7 -->
   <div class="slide" id="slide7">
     <canvas id="canvas7"></canvas>
     <div class="content">
-      <h1 class="text-line">The Fission Feast</h1>
-      <p class="text-line">Slavic food</p>
-      <p class="text-line">Chic</p>
-      <p class="text-line">Pedagogical</p>
-      <p class="text-line">Unusual</p>
+      <h1 class="text-line">The <span class="highlight">Fission Feast</span></h1>
+      <p class="text-line"><span class="accent-blue">Slavic</span> food</p>
+      <p class="text-line"><span class="accent-yellow">Chic</span></p>
+      <p class="text-line"><span class="highlight">Pedagogical</span></p>
+      <p class="text-line"><span class="accent-blue">Unusual</span></p>
     </div>
   </div>
 
-<!-- Slide 8: Location Saskatchewan -->
+  <!-- Slide 8 -->
   <div class="slide" id="slide8">
     <canvas id="canvas8"></canvas>
     <div class="content">
-      <h1 class="text-line">Saskatchewan, Canada</h1>
-      <p class="text-line">📍 Our location</p>
-      <p class="text-line">Extreme uranium abundance</p>
-      <p class="text-line">Uranium ore exhibition</p>
-      <p class="text-line">French-English bilingual experience</p>
+      <h1 class="text-line"><span class="highlight">Saskatchewan</span>, Canada</h1>
+      <p class="text-line">📍 Our <span class="accent-blue">location</span></p>
+      <p class="text-line">Extreme <span class="highlight">uranium</span> abundance</p>
+      <p class="text-line">Uranium ore <span class="accent-yellow">exhibition</span></p>
+      <p class="text-line"><span class="accent-blue">French-English</span> bilingual experience</p>
     </div>
   </div>
 
-<!-- Slide 9: The Fission Feast Menu -->
+  <!-- Slide 9: Menu -->
   <div class="slide" id="slide9">
     <canvas id="canvas9"></canvas>
-    <div class="content">
-      <h1 class="text-line">The Fission Feast</h1>
-      <div class="menu-grid">
-        <div class="menu-section">
-          <h2 class="text-line">Appetizers & Cold Starters</h2>
-          <p class="text-line">Zakuski Platter</p>
-          <p class="text-line">Borscht Shots</p>
-          <p class="text-line">Pelmeni Dumplings</p>
-          <p class="text-line">Pierogi Variety</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Hot Appetizers & Soups</h2>
-          <p class="text-line">Blini Station</p>
-          <p class="text-line">Solyanka</p>
-          <p class="text-line">Kotleti</p>
-          <p class="text-line">Pirozhki</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Main Courses</h2>
-          <p class="text-line">Shashlik Skewers</p>
-          <p class="text-line">Golubtsy</p>
-          <p class="text-line">Bigos</p>
-          <p class="text-line">Stuffed Pork Loin</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Sides & Vegetables</h2>
-          <p class="text-line">Kasha</p>
-          <p class="text-line">Potato Variants</p>
-          <p class="text-line">Stewed Red Cabbage</p>
-          <p class="text-line">Cucumber Salad</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Salads & Pickles</h2>
-          <p class="text-line">Vinegret Salad</p>
-          <p class="text-line">Olivier Salad</p>
-          <p class="text-line">Polish Beet Salad</p>
-          <p class="text-line">Pickle Bar</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Breads & Grains</h2>
-          <p class="text-line">Rye bread loaf with caraway seeds</p>
-          <p class="text-line">Pumpernickel slices</p>
-          <p class="text-line">Cornbread with fermented rye starter</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Desserts</h2>
-          <p class="text-line">Syrniki</p>
-          <p class="text-line">Medovik</p>
-          <p class="text-line">Makowiec</p>
-          <p class="text-line">Pączki</p>
-          <p class="text-line">Fruit Platter</p>
-        </div>
-        <div class="menu-section">
-          <h2 class="text-line">Beverages</h2>
-          <p class="text-line">Kvass</p>
-          <p class="text-line">Kompot</p>
-          <p class="text-line">Vodka Tasting</p>
-          <p class="text-line">Herbal Teas</p>
+    <div class="menu-container">
+      <h1 class="menu-title">The <span class="highlight">Fission Feast</span> Menu</h1>
+      
+      <div class="menu-scroll-container">
+        <div class="menu-grid">
+          
+          <!-- Starters -->
+          <div class="menu-category">
+            <div class="category-title">Starters</div>
+            <div class="dish-item">
+              <div class="dish-name">Zakuski</div>
+              <div class="dish-desc">Traditional appetizer platter</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Borscht</div>
+              <div class="dish-desc">Beet soup shots</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Blini</div>
+              <div class="dish-desc">Fluffy pancakes</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Pirozhki</div>
+              <div class="dish-desc">Stuffed pastry buns</div>
+            </div>
+          </div>
+
+          <!-- Dumplings -->
+          <div class="menu-category">
+            <div class="category-title">Dumplings</div>
+            <div class="dish-item">
+              <div class="dish-name">Pelmeni</div>
+              <div class="dish-desc">Siberian meat dumplings</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Pierogi</div>
+              <div class="dish-desc">Polish filled dumplings</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Vareniki</div>
+              <div class="dish-desc">Ukrainian sweet dumplings</div>
+            </div>
+          </div>
+
+          <!-- Soups -->
+          <div class="menu-category">
+            <div class="category-title">Soups</div>
+            <div class="dish-item">
+              <div class="dish-name">Solyanka</div>
+              <div class="dish-desc">Spicy sour soup</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Shchi</div>
+              <div class="dish-desc">Cabbage soup</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Ukha</div>
+              <div class="dish-desc">Fish broth</div>
+            </div>
+          </div>
+
+          <!-- Main Courses -->
+          <div class="menu-category">
+            <div class="category-title">Mains</div>
+            <div class="dish-item">
+              <div class="dish-name">Shashlik</div>
+              <div class="dish-desc">Grilled meat skewers</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Golubtsy</div>
+              <div class="dish-desc">Stuffed cabbage rolls</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Bigos</div>
+              <div class="dish-desc">Hunter's stew</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kotlety</div>
+              <div class="dish-desc">Meat cutlets</div>
+            </div>
+          </div>
+
+          <!-- Sides -->
+          <div class="menu-category">
+            <div class="category-title">Sides</div>
+            <div class="dish-item">
+              <div class="dish-name">Kasha</div>
+              <div class="dish-desc">Buckwheat porridge</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kartoshka</div>
+              <div class="dish-desc">Roasted potatoes</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kapusta</div>
+              <div class="dish-desc">Braised red cabbage</div>
+            </div>
+          </div>
+
+          <!-- Salads -->
+          <div class="menu-category">
+            <div class="category-title">Salads</div>
+            <div class="dish-item">
+              <div class="dish-name">Olivier</div>
+              <div class="dish-desc">Potato salad</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Vinegret</div>
+              <div class="dish-desc">Beet vegetable salad</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Sałatka</div>
+              <div class="dish-desc">Cucumber dill salad</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kiszone</div>
+              <div class="dish-desc">Assorted pickles</div>
+            </div>
+          </div>
+
+          <!-- Breads -->
+          <div class="menu-category">
+            <div class="category-title">Breads</div>
+            <div class="dish-item">
+              <div class="dish-name">Borodinsky</div>
+              <div class="dish-desc">Dark rye bread</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Pumpernickel</div>
+              <div class="dish-desc">Dense German bread</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kalach</div>
+              <div class="dish-desc">Round white bread</div>
+            </div>
+          </div>
+
+          <!-- Desserts -->
+          <div class="menu-category">
+            <div class="category-title">Desserts</div>
+            <div class="dish-item">
+              <div class="dish-name">Syrniki</div>
+              <div class="dish-desc">Cheese pancakes</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Medovik</div>
+              <div class="dish-desc">Honey layer cake</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Makowiec</div>
+              <div class="dish-desc">Poppy seed roll</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Pączki</div>
+              <div class="dish-desc">Filled doughnuts</div>
+            </div>
+          </div>
+
+          <!-- Beverages -->
+          <div class="menu-category">
+            <div class="category-title">Beverages</div>
+            <div class="dish-item">
+              <div class="dish-name">Kvass</div>
+              <div class="dish-desc">Fermented bread drink</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Kompot</div>
+              <div class="dish-desc">Fruit infusion</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Sbiten</div>
+              <div class="dish-desc">Honey spice drink</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Vodka</div>
+              <div class="dish-desc">Premium selection</div>
+            </div>
+          </div>
+
+          <!-- Specials -->
+          <div class="menu-category">
+            <div class="category-title">Specials</div>
+            <div class="dish-item">
+              <div class="dish-name">Beef Stroganoff</div>
+              <div class="dish-desc">Creamy beef strips</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Chicken Kiev</div>
+              <div class="dish-desc">Butter-filled cutlet</div>
+            </div>
+            <div class="dish-item">
+              <div class="dish-name">Plov</div>
+              <div class="dish-desc">Seasoned rice pilaf</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Slide 10: Fun Fact -->
+  <div class="slide" id="slide10">
+    <canvas id="canvas10"></canvas>
+    <div class="funfact-container">
+      <div class="funfact-badge">⚛️ Fun Fact!</div>
+      <div class="funfact-text">
+        <span class="funfact-highlight">Nuclear Fission</span> was discovered by <span class="funfact-person">two Nazis</span> in <span class="funfact-year">1938</span>,
+        <br>
+        then studied by a <span class="funfact-person">Jewish woman</span>, <span class="funfact-highlight">in exile</span>.
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- Navigation -->
 <div class="nav-arrow left" onclick="prevSlide()">‹</div>
 <div class="nav-arrow right" onclick="nextSlide()">›</div>
 
-<!-- Slide indicators -->
 <div class="slide-indicator">
   <div class="dot active"></div>
+  <div class="dot"></div>
   <div class="dot"></div>
   <div class="dot"></div>
   <div class="dot"></div>
@@ -455,7 +726,6 @@ const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 const totalSlides = slides.length;
 
-// Slide navigation
 function showSlide(n) {
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
@@ -476,13 +746,11 @@ function prevSlide() {
   showSlide(currentSlide - 1);
 }
 
-// Keyboard navigation
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') nextSlide();
   if (e.key === 'ArrowLeft') prevSlide();
 });
 
-// Animation functions for each slide
 function initSlideAnimation(slideNum) {
   switch(slideNum) {
     case 0: animateSlide1(); break;
@@ -494,10 +762,11 @@ function initSlideAnimation(slideNum) {
     case 6: animateSlide7(); break;
     case 7: animateSlide8(); break;
     case 8: animateSlide9(); break;
+    case 9: animateSlide10(); break;
   }
 }
 
-// Slide 1: Floating 3D shapes with energy flow
+// Slide 1
 function animateSlide1() {
   const canvas = document.getElementById('canvas1');
   const ctx = canvas.getContext('2d');
@@ -513,15 +782,13 @@ function animateSlide1() {
       size: 30 + Math.random() * 40,
       speedX: (Math.random() - 0.5) * 0.5,
       speedY: (Math.random() - 0.5) * 0.5,
-      speedZ: (Math.random() - 0.5) * 2,
-      type: Math.random() > 0.5 ? 'cube' : 'sphere'
+      speedZ: (Math.random() - 0.5) * 2
     });
   }
   
   let gradient = 0;
   
   function animate() {
-    // Animated gradient background
     gradient += 0.003;
     const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
     grad.addColorStop(0, `hsl(${200 + Math.sin(gradient) * 20}, 70%, ${15 + Math.sin(gradient) * 3}%)`);
@@ -529,7 +796,6 @@ function animateSlide1() {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Draw floating shapes
     shapes.forEach(shape => {
       shape.x += shape.speedX;
       shape.y += shape.speedY;
@@ -543,26 +809,13 @@ function animateSlide1() {
       const size = shape.size * scale;
       const opacity = 0.3 * (1 - shape.z / 500);
       
-      ctx.save();
-      ctx.translate(shape.x, shape.y);
-      
-      if (shape.type === 'sphere') {
-        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, size);
-        gradient.addColorStop(0, `rgba(100, 200, 255, ${opacity})`);
-        gradient.addColorStop(1, `rgba(100, 200, 255, 0)`);
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(0, 0, size, 0, Math.PI * 2);
-        ctx.fill();
-      } else {
-        ctx.fillStyle = `rgba(127, 255, 180, ${opacity * 0.6})`;
-        ctx.strokeStyle = `rgba(127, 255, 180, ${opacity})`;
-        ctx.lineWidth = 2;
-        ctx.fillRect(-size/2, -size/2, size, size);
-        ctx.strokeRect(-size/2, -size/2, size, size);
-      }
-      
-      ctx.restore();
+      const shapeGrad = ctx.createRadialGradient(shape.x, shape.y, 0, shape.x, shape.y, size);
+      shapeGrad.addColorStop(0, `rgba(100, 200, 255, ${opacity})`);
+      shapeGrad.addColorStop(1, `rgba(100, 200, 255, 0)`);
+      ctx.fillStyle = shapeGrad;
+      ctx.beginPath();
+      ctx.arc(shape.x, shape.y, size, 0, Math.PI * 2);
+      ctx.fill();
     });
     
     if (currentSlide === 0) requestAnimationFrame(animate);
@@ -571,7 +824,7 @@ function animateSlide1() {
   animate();
 }
 
-// Slide 2: City silhouette with power lines
+// Slide 2
 function animateSlide2() {
   const canvas = document.getElementById('canvas2');
   const ctx = canvas.getContext('2d');
@@ -584,7 +837,6 @@ function animateSlide2() {
     ctx.fillStyle = 'rgba(10, 22, 40, 0.95)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Draw city silhouette
     ctx.fillStyle = 'rgba(20, 40, 60, 0.8)';
     for (let i = 0; i < 15; i++) {
       const h = 100 + Math.random() * 200;
@@ -592,7 +844,6 @@ function animateSlide2() {
       const x = i * (canvas.width / 15);
       ctx.fillRect(x, canvas.height - h, w, h);
       
-      // Windows
       ctx.fillStyle = 'rgba(100, 150, 200, 0.3)';
       for (let j = 0; j < 8; j++) {
         for (let k = 0; k < 4; k++) {
@@ -604,7 +855,6 @@ function animateSlide2() {
       ctx.fillStyle = 'rgba(20, 40, 60, 0.8)';
     }
     
-    // Power lines with pulses
     ctx.strokeStyle = 'rgba(100, 150, 200, 0.4)';
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -612,12 +862,10 @@ function animateSlide2() {
     ctx.lineTo(canvas.width, canvas.height * 0.35);
     ctx.stroke();
     
-    // Create pulses
     if (Math.random() > 0.97) {
       pulses.push({ x: 0, y: canvas.height * 0.3 });
     }
     
-    // Animate pulses
     pulses.forEach((p, i) => {
       p.x += 8;
       const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 20);
@@ -637,7 +885,7 @@ function animateSlide2() {
   animate();
 }
 
-// Slide 3: Wind turbines and solar panels
+// Slide 3
 function animateSlide3() {
   const canvas = document.getElementById('canvas3');
   const ctx = canvas.getContext('2d');
@@ -645,40 +893,23 @@ function animateSlide3() {
   canvas.height = window.innerHeight;
   
   let rotation = 0;
-  let sunPos = 0;
   
   function animate() {
-    // Sky gradient
     const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
     grad.addColorStop(0, '#1a3a52');
     grad.addColorStop(1, '#2a5a7a');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Sun
-    sunPos += 0.001;
-    const sunX = canvas.width * 0.8;
-    const sunY = canvas.height * 0.2 + Math.sin(sunPos) * 20;
-    const sunGrad = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, 80);
-    sunGrad.addColorStop(0, 'rgba(255, 230, 150, 0.9)');
-    sunGrad.addColorStop(0.5, 'rgba(255, 200, 100, 0.4)');
-    sunGrad.addColorStop(1, 'rgba(255, 200, 100, 0)');
-    ctx.fillStyle = sunGrad;
-    ctx.beginPath();
-    ctx.arc(sunX, sunY, 80, 0, Math.PI * 2);
-    ctx.fill();
-    
-    // Wind turbines
     rotation += 0.02;
+    
     for (let i = 0; i < 3; i++) {
       const x = canvas.width * (0.2 + i * 0.25);
       const y = canvas.height * 0.5;
       
-      // Tower
       ctx.fillStyle = 'rgba(200, 220, 240, 0.6)';
       ctx.fillRect(x - 8, y, 16, 250);
       
-      // Blades
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(rotation + i * 0.5);
@@ -699,7 +930,6 @@ function animateSlide3() {
       ctx.restore();
     }
     
-    // Solar panels
     for (let i = 0; i < 5; i++) {
       const x = canvas.width * (0.15 + i * 0.15);
       const y = canvas.height * 0.75;
@@ -708,23 +938,12 @@ function animateSlide3() {
       ctx.translate(x, y);
       ctx.rotate(-0.2);
       
-      // Panel reflection
       const panelGrad = ctx.createLinearGradient(-60, -40, 60, 40);
       panelGrad.addColorStop(0, 'rgba(60, 100, 160, 0.8)');
       panelGrad.addColorStop(0.5, 'rgba(100, 150, 200, 0.9)');
       panelGrad.addColorStop(1, 'rgba(60, 100, 160, 0.8)');
       ctx.fillStyle = panelGrad;
       ctx.fillRect(-60, -40, 120, 80);
-      
-      // Grid lines
-      ctx.strokeStyle = 'rgba(200, 220, 255, 0.4)';
-      ctx.lineWidth = 2;
-      for (let j = 1; j < 4; j++) {
-        ctx.beginPath();
-        ctx.moveTo(-60 + j * 30, -40);
-        ctx.lineTo(-60 + j * 30, 40);
-        ctx.stroke();
-      }
       
       ctx.restore();
     }
@@ -735,7 +954,7 @@ function animateSlide3() {
   animate();
 }
 
-// Slide 4: Nuclear reactor core with orbitals
+// Slide 4
 function animateSlide4() {
   const canvas = document.getElementById('canvas4');
   const ctx = canvas.getContext('2d');
@@ -763,7 +982,6 @@ function animateSlide4() {
     
     rotation += 0.01;
     
-    // Reactor core glow
     const coreGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 150);
     coreGrad.addColorStop(0, 'rgba(127, 255, 127, 0.6)');
     coreGrad.addColorStop(0.5, 'rgba(100, 200, 150, 0.3)');
@@ -773,14 +991,12 @@ function animateSlide4() {
     ctx.arc(centerX, centerY, 150, 0, Math.PI * 2);
     ctx.fill();
     
-    // Core structure
     ctx.strokeStyle = 'rgba(150, 255, 180, 0.7)';
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.arc(centerX, centerY, 60, 0, Math.PI * 2);
     ctx.stroke();
     
-    // Orbiting particles
     particles.forEach(p => {
       p.angle += p.speed;
       
@@ -796,7 +1012,6 @@ function animateSlide4() {
       ctx.fill();
     });
     
-    // Orbital rings
     for (let i = 0; i < 3; i++) {
       ctx.save();
       ctx.translate(centerX, centerY);
@@ -815,35 +1030,28 @@ function animateSlide4() {
   animate();
 }
 
-// Slide 5: Nuclear processes visualization
+// Slide 5
 function animateSlide5() {
   const canvas = document.getElementById('canvas5');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   
-  ctx.fillStyle = 'rgba(10, 20, 35, 0.95)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
   const fissionParticles = [];
-  const fusionParticles = [];
   let enrichmentRotation = 0;
   
   function animate() {
     ctx.fillStyle = 'rgba(10, 20, 35, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Fission animation (left third)
     const fissionX = canvas.width * 0.2;
     const fissionY = canvas.height * 0.35;
     
-    // Heavy nucleus
     ctx.fillStyle = 'rgba(200, 100, 100, 0.7)';
     ctx.beginPath();
     ctx.arc(fissionX, fissionY, 40, 0, Math.PI * 2);
     ctx.fill();
     
-    // Generate fission particles
     if (Math.random() > 0.97) {
       for (let i = 0; i < 8; i++) {
         const angle = (Math.PI * 2 * i) / 8;
@@ -857,7 +1065,6 @@ function animateSlide5() {
       }
     }
     
-    // Animate fission particles
     fissionParticles.forEach((p, i) => {
       p.x += p.vx;
       p.y += p.vy;
@@ -872,11 +1079,9 @@ function animateSlide5() {
       if (p.life <= 0) fissionParticles.splice(i, 1);
     });
     
-    // Fusion animation (middle third)
     const fusionX = canvas.width * 0.5;
     const fusionY = canvas.height * 0.35;
     
-    // Two nuclei approaching
     const offset = 30 + Math.sin(Date.now() * 0.003) * 20;
     ctx.fillStyle = 'rgba(100, 150, 255, 0.7)';
     ctx.beginPath();
@@ -886,7 +1091,6 @@ function animateSlide5() {
     ctx.arc(fusionX + offset, fusionY, 25, 0, Math.PI * 2);
     ctx.fill();
     
-    // Energy burst when close
     if (offset < 35) {
       const burstGrad = ctx.createRadialGradient(fusionX, fusionY, 0, fusionX, fusionY, 80);
       burstGrad.addColorStop(0, 'rgba(255, 200, 100, 0.8)');
@@ -897,21 +1101,17 @@ function animateSlide5() {
       ctx.fill();
     }
     
-    // Enrichment animation (right third)
     const enrichX = canvas.width * 0.8;
     const enrichY = canvas.height * 0.35;
     
     enrichmentRotation += 0.05;
     
-    // Centrifuge cylinder
     ctx.save();
     ctx.translate(enrichX, enrichY);
     
-    // Cylinder body
     ctx.fillStyle = 'rgba(150, 180, 200, 0.4)';
     ctx.fillRect(-40, -80, 80, 160);
     
-    // Rotation effect with particles
     for (let i = 0; i < 12; i++) {
       const angle = enrichmentRotation + (i * Math.PI * 2) / 12;
       const r = 30;
@@ -936,100 +1136,48 @@ function animateSlide5() {
   animate();
 }
 
-// Slide 6: Word animation with floating text particles
+// Slide 6
 function animateSlide6() {
   const canvas = document.getElementById('canvas6');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   
-  const textParticles = [];
-  const word = "Our solution";
-  
-  // Create text particles
-  for (let i = 0; i < 50; i++) {
-    textParticles.push({
+  const particles = [];
+  for (let i = 0; i < 60; i++) {
+    particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2,
-      size: 10 + Math.random() * 20,
-      char: word[Math.floor(Math.random() * word.length)],
-      opacity: 0.3 + Math.random() * 0.7,
-      rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.05
+      vx: (Math.random() - 0.5) * 1.5,
+      vy: (Math.random() - 0.5) * 1.5,
+      size: 2 + Math.random() * 4,
+      hue: 180 + Math.random() * 60
     });
   }
   
   let time = 0;
   
   function animate() {
-    // Dark background with subtle gradient
-    const grad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
-    grad.addColorStop(0, 'rgba(15, 25, 45, 0.95)');
-    grad.addColorStop(1, 'rgba(5, 15, 25, 0.95)');
-    ctx.fillStyle = grad;
+    const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
+    bgGrad.addColorStop(0, 'rgba(10, 25, 50, 0.98)');
+    bgGrad.addColorStop(1, 'rgba(2, 8, 20, 0.98)');
+    ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    time += 0.01;
+    time += 0.015;
     
-    // Central glowing word
-    ctx.save();
-    ctx.translate(canvas.width/2, canvas.height/2);
-    ctx.scale(1 + Math.sin(time) * 0.1, 1 + Math.sin(time) * 0.1);
-    
-    const glowGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 150);
-    glowGrad.addColorStop(0, `rgba(100, 200, 255, ${0.3 + Math.sin(time * 2) * 0.2})`);
-    glowGrad.addColorStop(1, 'rgba(100, 200, 255, 0)');
-    ctx.fillStyle = glowGrad;
-    ctx.beginPath();
-    ctx.arc(0, 0, 150, 0, Math.PI * 2);
-    ctx.fill();
-    
-    ctx.font = 'bold 120px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    
-    // Text with glow effect
-    ctx.shadowColor = 'rgba(100, 200, 255, 0.8)';
-    ctx.shadowBlur = 30;
-    ctx.fillStyle = `rgba(200, 230, 255, ${0.8 + Math.sin(time * 3) * 0.2})`;
-    ctx.fillText(word, 0, 0);
-    ctx.restore();
-    
-    // Floating text particles
-    textParticles.forEach(particle => {
+    particles.forEach(particle => {
       particle.x += particle.vx;
       particle.y += particle.vy;
-      particle.rotation += particle.rotationSpeed;
       
-      // Bounce off edges
       if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
       if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
       
-      ctx.save();
-      ctx.translate(particle.x, particle.y);
-      ctx.rotate(particle.rotation);
-      ctx.font = `${particle.size}px Arial`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillStyle = `rgba(150, 200, 255, ${particle.opacity * 0.5})`;
-      ctx.fillText(particle.char, 0, 0);
-      ctx.restore();
-    });
-    
-    // Orbital rings
-    for (let i = 0; i < 3; i++) {
-      ctx.save();
-      ctx.translate(canvas.width/2, canvas.height/2);
-      ctx.rotate(time * (i + 1) * 0.3);
-      ctx.strokeStyle = `rgba(100, 200, 255, ${0.1 - i * 0.02})`;
-      ctx.lineWidth = 2;
+      ctx.fillStyle = `hsla(${particle.hue}, 70%, 60%, 0.6)`;
       ctx.beginPath();
-      ctx.ellipse(0, 0, 200 + i * 50, 100 + i * 25, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
-    }
+      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
     
     if (currentSlide === 5) requestAnimationFrame(animate);
   }
@@ -1037,240 +1185,65 @@ function animateSlide6() {
   animate();
 }
 
-// Slide 7: Nuclear chain reaction animation
+// Slide 7
 function animateSlide7() {
   const canvas = document.getElementById('canvas7');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   
-  const atoms = [];
-  const chainReactions = [];
-  let time = 0;
-  
-  // Create initial atoms
-  for (let i = 0; i < 15; i++) {
-    atoms.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 1,
-      vy: (Math.random() - 0.5) * 1,
-      radius: 15 + Math.random() * 10,
-      unstable: Math.random() > 0.7,
-      glowIntensity: 0
+  const waves = [];
+  for (let i = 0; i < 6; i++) {
+    waves.push({
+      x: canvas.width * (0.2 + i * 0.15),
+      y: canvas.height * (0.3 + Math.random() * 0.4),
+      radius: 50 + Math.random() * 30,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.02 + Math.random() * 0.02
     });
   }
   
-  function createChainReaction(x, y) {
-    const particles = [];
-    for (let i = 0; i < 12; i++) {
-      const angle = (Math.PI * 2 * i) / 12;
-      particles.push({
-        x: x,
-        y: y,
-        vx: Math.cos(angle) * 4,
-        vy: Math.sin(angle) * 4,
-        life: 40,
-        maxLife: 40
-      });
-    }
-    chainReactions.push(particles);
-  }
-  
   function animate() {
-    // Dark nuclear background
-    const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
-    bgGrad.addColorStop(0, 'rgba(5, 15, 35, 0.95)');
-    bgGrad.addColorStop(1, 'rgba(0, 5, 15, 0.95)');
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    bgGrad.addColorStop(0, 'rgba(10, 25, 50, 0.98)');
+    bgGrad.addColorStop(1, 'rgba(2, 8, 20, 0.98)');
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    time += 0.02;
-    
-    // Update and draw atoms
-    atoms.forEach(atom => {
-      atom.x += atom.vx;
-      atom.y += atom.vy;
+    waves.forEach(wave => {
+      wave.phase += wave.speed;
       
-      // Bounce off walls
-      if (atom.x - atom.radius < 0 || atom.x + atom.radius > canvas.width) atom.vx *= -1;
-      if (atom.y - atom.radius < 0 || atom.y + atom.radius > canvas.height) atom.vy *= -1;
+      const pulseSize = Math.sin(wave.phase) * 0.3 + 0.7;
+      const actualRadius = wave.radius * pulseSize;
       
-      // Random instability
-      if (atom.unstable && Math.random() > 0.995) {
-        atom.glowIntensity = 1;
-        createChainReaction(atom.x, atom.y);
-      }
+      const glowGrad = ctx.createRadialGradient(wave.x, wave.y, 0, wave.x, wave.y, actualRadius * 2);
+      glowGrad.addColorStop(0, `rgba(100, 200, 255, 0.3)`);
+      glowGrad.addColorStop(1, 'rgba(100, 200, 255, 0)');
       
-      // Decay glow
-      atom.glowIntensity *= 0.95;
-      
-      // Draw atom
-      if (atom.unstable) {
-        // Unstable atoms glow red
-        const glowGrad = ctx.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.radius * 2);
-        glowGrad.addColorStop(0, `rgba(255, 100, 100, ${0.3 + atom.glowIntensity * 0.5})`);
-        glowGrad.addColorStop(1, 'rgba(255, 100, 100, 0)');
-        ctx.fillStyle = glowGrad;
-        ctx.beginPath();
-        ctx.arc(atom.x, atom.y, atom.radius * 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      
-      // Atom core
-      const coreGrad = ctx.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.radius);
-      if (atom.unstable) {
-        coreGrad.addColorStop(0, 'rgba(255, 150, 150, 0.9)');
-        coreGrad.addColorStop(1, 'rgba(200, 100, 100, 0.7)');
-      } else {
-        coreGrad.addColorStop(0, 'rgba(100, 200, 255, 0.9)');
-        coreGrad.addColorStop(1, 'rgba(50, 150, 200, 0.7)');
-      }
-      ctx.fillStyle = coreGrad;
+      ctx.fillStyle = glowGrad;
       ctx.beginPath();
-      ctx.arc(atom.x, atom.y, atom.radius, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Nucleus detail
-      ctx.fillStyle = atom.unstable ? 'rgba(255, 255, 255, 0.8)' : 'rgba(200, 230, 255, 0.8)';
-      ctx.beginPath();
-      ctx.arc(atom.x, atom.y, atom.radius * 0.3, 0, Math.PI * 2);
+      ctx.arc(wave.x, wave.y, actualRadius * 2, 0, Math.PI * 2);
       ctx.fill();
     });
     
-    // Update and draw chain reactions
-    chainReactions.forEach((reaction, reactionIndex) => {
-      reaction.forEach((particle, particleIndex) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.life--;
-        
-        const alpha = particle.life / particle.maxLife;
-        
-        // Draw neutron particle
-        const particleGrad = ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, 8);
-        particleGrad.addColorStop(0, `rgba(255, 255, 100, ${alpha})`);
-        particleGrad.addColorStop(1, 'rgba(255, 200, 100, 0)');
-        ctx.fillStyle = particleGrad;
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, 8, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Check collision with atoms
-        atoms.forEach(atom => {
-          const dx = particle.x - atom.x;
-          const dy = particle.y - atom.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance < atom.radius && atom.unstable && particle.life > 35) {
-            atom.glowIntensity = 1;
-            createChainReaction(atom.x, atom.y);
-          }
-        });
-        
-        if (particle.life <= 0) {
-          reaction.splice(particleIndex, 1);
-        }
-      });
-      
-      if (reaction.length === 0) {
-        chainReactions.splice(reactionIndex, 1);
-      }
-    });
-    
-    // Energy field effect
-    ctx.strokeStyle = `rgba(100, 200, 255, ${0.1 + Math.sin(time) * 0.05})`;
-    ctx.lineWidth = 1;
-    for (let i = 0; i < 5; i++) {
-      ctx.beginPath();
-      ctx.arc(canvas.width/2, canvas.height/2, 100 + i * 80 + Math.sin(time + i) * 20, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-    
-    if (currentSlide === 7) requestAnimationFrame(animate);
-  }
-  
-  animate();
-
-  
-  function animate() {
-    // Floor gradient
-    const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    grad.addColorStop(0, '#1a2a3a');
-    grad.addColorStop(0.6, '#2a3a4a');
-    grad.addColorStop(1, '#3a4a5a');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Buffet tables
-    for (let i = 0; i < 3; i++) {
-      const x = canvas.width * (0.25 + i * 0.25);
-      const y = canvas.height * 0.5;
-      
-      // Table surface
-      ctx.fillStyle = 'rgba(100, 120, 140, 0.6)';
-      ctx.fillRect(x - 100, y, 200, 30);
-      
-      // Table items (food placeholders)
-      for (let j = 0; j < 4; j++) {
-        const itemX = x - 80 + j * 50;
-        const itemY = y - 20;
-        
-        const itemGrad = ctx.createRadialGradient(itemX, itemY, 0, itemX, itemY, 15);
-        itemGrad.addColorStop(0, 'rgba(200, 180, 150, 0.8)');
-        itemGrad.addColorStop(1, 'rgba(150, 130, 100, 0.5)');
-        ctx.fillStyle = itemGrad;
-        ctx.beginPath();
-        ctx.arc(itemX, itemY, 15, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      
-      // Overhead lighting
-      const lightGrad = ctx.createRadialGradient(x, y - 200, 0, x, y - 200, 120);
-      lightGrad.addColorStop(0, 'rgba(200, 220, 255, 0.3)');
-      lightGrad.addColorStop(1, 'rgba(200, 220, 255, 0)');
-      ctx.fillStyle = lightGrad;
-      ctx.beginPath();
-      ctx.arc(x, y - 200, 120, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    
-    // Animated visitors
-    visitors.forEach(v => {
-      v.x += v.speed * v.direction;
-      
-      if (v.x < 0 || v.x > canvas.width) v.direction *= -1;
-      
-      // Silhouette
-      ctx.fillStyle = 'rgba(50, 70, 90, 0.6)';
-      ctx.beginPath();
-      ctx.ellipse(v.x, v.y, 15, 40, 0, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Head
-      ctx.beginPath();
-      ctx.arc(v.x, v.y - 50, 12, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    
-if (currentSlide === 6) requestAnimationFrame(animate);
+    if (currentSlide === 6) requestAnimationFrame(animate);
   }
   
   animate();
 }
 
-// Slide 8: Saskatchewan map with uranium deposits
+// Slide 8
 function animateSlide8() {
-  const canvas = document.getElementById('canvas7');
+  const canvas = document.getElementById('canvas8');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   
   let rotation = 0;
   const deposits = [
-    { x: 0.48, y: 0.35, label: 'Athabasca Basin' },
-    { x: 0.52, y: 0.38, label: 'Cigar Lake' },
-    { x: 0.46, y: 0.40, label: 'McArthur River' }
+    { x: 0.48, y: 0.35 },
+    { x: 0.52, y: 0.38 },
+    { x: 0.46, y: 0.40 }
   ];
   
   function animate() {
@@ -1285,43 +1258,20 @@ function animateSlide8() {
     ctx.save();
     ctx.translate(centerX, centerY);
     ctx.rotate(rotation);
-    ctx.scale(1 + Math.sin(rotation * 2) * 0.05, 1 + Math.sin(rotation * 2) * 0.05);
     
-    // Canada outline (simplified)
-    ctx.strokeStyle = 'rgba(100, 150, 200, 0.5)';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(-200, -100);
-    ctx.lineTo(-150, -120);
-    ctx.lineTo(0, -130);
-    ctx.lineTo(150, -100);
-    ctx.lineTo(200, -50);
-    ctx.lineTo(180, 50);
-    ctx.lineTo(100, 100);
-    ctx.lineTo(-50, 120);
-    ctx.lineTo(-180, 80);
-    ctx.lineTo(-220, 0);
-    ctx.closePath();
-    ctx.stroke();
-    
-    // Saskatchewan highlighted
     ctx.fillStyle = 'rgba(127, 255, 127, 0.3)';
     ctx.strokeStyle = 'rgba(127, 255, 127, 0.8)';
     ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.rect(-80, -60, 100, 120);
-    ctx.fill();
-    ctx.stroke();
+    ctx.fillRect(-80, -60, 100, 120);
+    ctx.strokeRect(-80, -60, 100, 120);
     
     ctx.restore();
     
-    // Uranium deposit markers
     deposits.forEach((dep, i) => {
       const x = canvas.width * dep.x;
       const y = canvas.height * dep.y;
       const pulse = Math.sin(Date.now() * 0.003 + i) * 0.3 + 0.7;
       
-      // Glow
       const glowGrad = ctx.createRadialGradient(x, y, 0, x, y, 30 * pulse);
       glowGrad.addColorStop(0, `rgba(127, 255, 127, ${0.8 * pulse})`);
       glowGrad.addColorStop(1, 'rgba(127, 255, 127, 0)');
@@ -1330,212 +1280,57 @@ function animateSlide8() {
       ctx.arc(x, y, 30 * pulse, 0, Math.PI * 2);
       ctx.fill();
       
-      // Marker
       ctx.fillStyle = 'rgba(150, 255, 150, 0.9)';
       ctx.beginPath();
       ctx.arc(x, y, 8, 0, Math.PI * 2);
       ctx.fill();
-      
-      // Label
-      ctx.fillStyle = 'rgba(200, 255, 200, 0.9)';
-      ctx.font = '18px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(dep.label, x, y + 40);
     });
     
-if (currentSlide === 7) requestAnimationFrame(animate);
+    if (currentSlide === 7) requestAnimationFrame(animate);
   }
   
   animate();
 }
 
-// Slide 9: Incredible menu particle animation
+// Slide 9: Menu with elegant particles
 function animateSlide9() {
   const canvas = document.getElementById('canvas9');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   
-  const foodParticles = [];
-  const menuItems = [
-    'Zakuski', 'Borscht', 'Pelmeni', 'Pierogi',
-    'Blini', 'Solyanka', 'Kotleti', 'Pirozhki',
-    'Shashlik', 'Golubtsy', 'Bigos', 'Pork Loin',
-    'Kasha', 'Potato', 'Cabbage', 'Cucumber',
-    'Vinegret', 'Olivier', 'Beet Salad', 'Pickle',
-    'Rye Bread', 'Pumpernickel', 'Cornbread', 'Syrniki',
-    'Medovik', 'Makowiec', 'Pączki', 'Kvass', 'Kompot', 'Vodka'
-  ];
-  
-  let time = 0;
-  
-  // Create floating food particles
+  const particles = [];
   for (let i = 0; i < 80; i++) {
-    foodParticles.push({
+    particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5,
-      size: 8 + Math.random() * 20,
-      item: menuItems[Math.floor(Math.random() * menuItems.length)],
-      color: `hsl(${Math.random() * 60 + 180}, 70%, 60%)`,
-      rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: (Math.random() - 0.5) * 0.05,
-      pulsePhase: Math.random() * Math.PI * 2,
-      trail: []
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      size: 1 + Math.random() * 3,
+      hue: 180 + Math.random() * 60,
+      alpha: 0.2 + Math.random() * 0.4
     });
   }
   
   function animate() {
-    // Luxurious dark background
-    const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
-    bgGrad.addColorStop(0, 'rgba(15, 25, 45, 0.98)');
-    bgGrad.addColorStop(0.5, 'rgba(10, 20, 35, 0.98)');
-    bgGrad.addColorStop(1, 'rgba(5, 10, 20, 0.98)');
+    const bgGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    bgGrad.addColorStop(0, 'rgba(8, 18, 35, 0.98)');
+    bgGrad.addColorStop(1, 'rgba(3, 10, 22, 0.98)');
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    time += 0.015;
-    
-    // Subtle animated grid
-    ctx.strokeStyle = 'rgba(100, 200, 255, 0.05)';
-    ctx.lineWidth = 1;
-    const gridSize = 50;
-    for (let x = 0; x < canvas.width; x += gridSize) {
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        const offsetX = Math.sin(time + x * 0.01) * 5;
-        const offsetY = Math.cos(time + y * 0.01) * 5;
-        ctx.moveTo(x + offsetX, y + offsetY);
-        ctx.lineTo(x + gridSize + offsetX, y + offsetY);
-        ctx.moveTo(x + offsetX, y + offsetY);
-        ctx.lineTo(x + offsetX, y + gridSize + offsetY);
-        ctx.stroke();
-      }
-    }
-    
-    // Central menu vortex
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    
-    for (let i = 5; i > 0; i--) {
-      const radius = i * 80 + Math.sin(time * 2 + i) * 20;
-      const alpha = 0.1 - i * 0.015;
-      
-      ctx.strokeStyle = `rgba(127, 255, 180, ${alpha})`;
-      ctx.lineWidth = 3 - i * 0.5;
-      ctx.beginPath();
-      for (let angle = 0; angle < Math.PI * 2; angle += 0.1) {
-        const r = radius + Math.sin(angle * 4 + time * 3 + i) * 15;
-        const x = centerX + Math.cos(angle + time) * r;
-        const y = centerY + Math.sin(angle + time) * r;
-        if (angle === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
-      ctx.closePath();
-      ctx.stroke();
-    }
-    
-    // Update and draw food particles
-    foodParticles.forEach(particle => {
-      // Update position
+    particles.forEach(particle => {
       particle.x += particle.vx;
       particle.y += particle.vy;
-      particle.rotation += particle.rotationSpeed;
-      particle.pulsePhase += 0.05;
       
-      // Add to trail
-      particle.trail.push({x: particle.x, y: particle.y});
-      if (particle.trail.length > 8) {
-        particle.trail.shift();
-      }
+      if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+      if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
       
-      // Gravitational pull to center when near
-      const dx = centerX - particle.x;
-      const dy = centerY - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      if (distance < 300 && distance > 50) {
-        particle.vx += dx * 0.0001;
-        particle.vy += dy * 0.0001;
-      }
-      
-      // Bounce off edges
-      if (particle.x < particle.size || particle.x > canvas.width - particle.size) {
-        particle.vx *= -0.9;
-        particle.x = Math.max(particle.size, Math.min(canvas.width - particle.size, particle.x));
-      }
-      if (particle.y < particle.size || particle.y > canvas.height - particle.size) {
-        particle.vy *= -0.9;
-        particle.y = Math.max(particle.size, Math.min(canvas.height - particle.size, particle.y));
-      }
-      
-      // Apply friction
-      particle.vx *= 0.995;
-      particle.vy *= 0.995;
-      
-      // Draw trail
-      particle.trail.forEach((point, index) => {
-        const trailAlpha = index / particle.trail.length * 0.3;
-        const trailSize = particle.size * (index / particle.trail.length);
-        
-        ctx.fillStyle = particle.color.replace('60%', '50%').replace(')', `, ${trailAlpha})`);
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, trailSize, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      
-      // Draw particle
-      const pulse = Math.sin(particle.pulsePhase) * 0.3 + 0.7;
-      const actualSize = particle.size * pulse;
-      
-      ctx.save();
-      ctx.translate(particle.x, particle.y);
-      ctx.rotate(particle.rotation);
-      
-      // Glow effect
-      const glowGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, actualSize * 2);
-      glowGrad.addColorStop(0, particle.color.replace('60%', '80%').replace(')', ', 0.8)'));
-      glowGrad.addColorStop(1, particle.color.replace('60%', '40%').replace(')', ', 0)'));
-      ctx.fillStyle = glowGrad;
+      ctx.fillStyle = `hsla(${particle.hue}, 70%, 60%, ${particle.alpha})`;
       ctx.beginPath();
-      ctx.arc(0, 0, actualSize * 2, 0, Math.PI * 2);
+      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fill();
-      
-      // Main particle
-      ctx.fillStyle = particle.color;
-      ctx.fillRect(-actualSize/2, -actualSize/2, actualSize, actualSize);
-      
-      // Inner highlight
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.fillRect(-actualSize/4, -actualSize/4, actualSize/4, actualSize/4);
-      
-      ctx.restore();
-      
-      // Draw item name for large particles
-      if (particle.size > 15 && Math.random() > 0.98) {
-        ctx.save();
-        ctx.font = '10px Arial';
-        ctx.fillStyle = 'rgba(200, 230, 255, 0.6)';
-        ctx.textAlign = 'center';
-        ctx.fillText(particle.item, particle.x, particle.y - particle.size - 5);
-        ctx.restore();
-      }
     });
-    
-    // Central energy burst
-    const burstAlpha = Math.sin(time * 4) * 0.2 + 0.3;
-    const burstGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 200);
-    burstGrad.addColorStop(0, `rgba(255, 200, 100, ${burstAlpha})`);
-    burstGrad.addColorStop(0.5, `rgba(127, 255, 180, ${burstAlpha * 0.5})`);
-    burstGrad.addColorStop(1, 'rgba(100, 200, 255, 0)');
-    ctx.fillStyle = burstGrad;
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 200, 0, Math.PI * 2);
-    ctx.fill();
     
     if (currentSlide === 8) requestAnimationFrame(animate);
   }
@@ -1543,7 +1338,97 @@ function animateSlide9() {
   animate();
 }
 
-// Initialize first slide
+// Slide 10: Fun Fact with atomic particles
+function animateSlide10() {
+  const canvas = document.getElementById('canvas10');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  const atoms = [];
+  for (let i = 0; i < 40; i++) {
+    atoms.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 1.2,
+      vy: (Math.random() - 0.5) * 1.2,
+      size: 3 + Math.random() * 6,
+      hue: 40 + Math.random() * 80,
+      rotation: 0,
+      rotationSpeed: 0.02 + Math.random() * 0.03
+    });
+  }
+  
+  let time = 0;
+  
+  function animate() {
+    const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
+    bgGrad.addColorStop(0, 'rgba(15, 25, 45, 0.98)');
+    bgGrad.addColorStop(1, 'rgba(5, 10, 25, 0.98)');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    time += 0.01;
+    
+    atoms.forEach(atom => {
+      atom.x += atom.vx;
+      atom.y += atom.vy;
+      atom.rotation += atom.rotationSpeed;
+      
+      if (atom.x < 0 || atom.x > canvas.width) atom.vx *= -1;
+      if (atom.y < 0 || atom.y > canvas.height) atom.vy *= -1;
+      
+      const glowGrad = ctx.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.size * 3);
+      glowGrad.addColorStop(0, `hsla(${atom.hue}, 80%, 60%, 0.6)`);
+      glowGrad.addColorStop(1, `hsla(${atom.hue}, 70%, 50%, 0)`);
+      ctx.fillStyle = glowGrad;
+      ctx.beginPath();
+      ctx.arc(atom.x, atom.y, atom.size * 3, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.save();
+      ctx.translate(atom.x, atom.y);
+      ctx.rotate(atom.rotation);
+      
+      ctx.strokeStyle = `hsla(${atom.hue}, 90%, 70%, 0.7)`;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(0, 0, atom.size * 2, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      for (let i = 0; i < 3; i++) {
+        const angle = (Math.PI * 2 * i) / 3 + atom.rotation;
+        const x = Math.cos(angle) * atom.size * 2;
+        const y = Math.sin(angle) * atom.size * 2;
+        
+        ctx.fillStyle = `hsla(${atom.hue + 30}, 90%, 80%, 0.9)`;
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      ctx.restore();
+    });
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const pulse = Math.sin(time * 2) * 0.2 + 0.8;
+    
+    const coreGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 120);
+    coreGrad.addColorStop(0, `rgba(255, 217, 102, ${pulse * 0.3})`);
+    coreGrad.addColorStop(0.5, `rgba(255, 150, 100, ${pulse * 0.2})`);
+    coreGrad.addColorStop(1, 'rgba(255, 100, 150, 0)');
+    ctx.fillStyle = coreGrad;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 120, 0, Math.PI * 2);
+    ctx.fill();
+    
+    if (currentSlide === 9) requestAnimationFrame(animate);
+  }
+  
+  animate();
+}
+
 initSlideAnimation(0);
 </script>
 </body>
