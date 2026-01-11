@@ -378,6 +378,87 @@ p {
   font-weight: 700;
   text-shadow: 0 0 15px rgba(127, 255, 127, 0.6);
 }
+
+
+/* --- FINAL CENTERING & LAYOUT SLIDE 9 --- */
+
+#slide9 {
+    display: flex;
+    align-items: center;    /* Centrage Vertical */
+    justify-content: center; /* Centrage Horizontal */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu-wrapper {
+    width: 100%;
+    max-width: 900px; /* Largeur optimale pour ne pas s'étaler trop */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-main-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.menu-grid-final {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+    gap: 20px;
+    width: 100%;
+}
+
+.menu-card-final {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(100, 180, 220, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.menu-card-final.special {
+    border-color: var(--nuclear-green-solid);
+    background: rgba(120, 220, 180, 0.05);
+}
+
+.cat-title {
+    color: var(--nuclear-green-solid);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+
+.item-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.item-line .price {
+    color: var(--glass-blue-solid);
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+/* Ajustement automatique si l'écran est trop petit en hauteur ou largeur */
+@media (max-width: 768px), (max-height: 600px) {
+    .menu-grid-final {
+        grid-template-columns: 1fr; /* Passe en 1 colonne pour gagner de la place */
+        gap: 10px;
+    }
+    .menu-main-title { margin-bottom: 1rem; }
+    .menu-card-final { padding: 12px; }
+    .item-line { font-size: 0.95rem; margin-bottom: 5px; }
+}
+
 </style>
 </head>
 <body>
@@ -486,87 +567,40 @@ p {
     </div>
   </div>
 
-  <!-- Slide 9: Restaurant Menu -->
+  <!-- Slide 9 -->
   <div class="slide" id="slide9">
-    <canvas id="canvas9"></canvas>
-    <div class="menu-container">
-
-      <h1 class="menu-title">Exquisite <span class="highlight">Tasting Menu</span></h1>
-      <p style="font-size:1.5rem; margin-bottom:35px; opacity:0.9;">
-       
-      </p>
-
-      <div class="menu-scroll-container">
-        <div class="menu-grid">
-
-          <!-- Colonne gauche : Amuse-Bouche + Starters -->
-          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
-
-            <!-- Amuse-Bouche -->
-            <div class="menu-category">
-              <div class="category-title">Amuse-Bouche</div>
-              <div class="dish-item">
-                <div class="dish-name">Artisanal Duck Foie Gras&nbsp;€28</div>
-                <div class="dish-desc">(Smooth duck liver with brioche.)</div>
-              </div>
-              <div class="dish-item">
-                <div class="dish-name">Caramelized Onion Soup&nbsp;€24</div>
-                <div class="dish-desc">(Rich onions with melted cheese.)</div>
-              </div>
+    <div class="menu-bg-glow"></div>
+    
+    <div class="menu-wrapper">
+        <h1 class="menu-main-title">Critical <span class="highlight">Mass</span> Bistro</h1>
+        
+        <div class="menu-grid-final">
+            <div class="menu-card-final">
+                <h3 class="cat-title">Reactions</h3>
+                <div class="item-line"><span>Fission Chips</span> <span class="price">€18</span></div>
+                <div class="item-line"><span>Yellowcake Polenta</span> <span class="price">€22</span></div>
             </div>
 
-            <!-- Starters -->
-            <div class="menu-category">
-              <div class="category-title">Starters</div>
-              <div class="dish-item">
-                <div class="dish-name">Boeuf Bourguignon&nbsp;€68</div>
-                <div class="dish-desc">(Tender beef in red wine sauce.)</div>
-              </div>
-              <div class="dish-item">
-                <div class="dish-name">Duck Confit&nbsp;€72</div>
-                <div class="dish-desc">(Crispy duck with truffle potatoes.)</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Colonne centre : Desserts -->
-          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
-
-            <div class="menu-category">
-              <div class="category-title">Desserts</div>
-              <div class="dish-item">
-                <div class="dish-name">Vanilla Crème Brûlée&nbsp;€22</div>
-                <div class="dish-desc">(Creamy custard with caramel top.)</div>
-              </div>
-              <div class="dish-item">
-                <div class="dish-name">Tarte Tatin&nbsp;€24</div>
-                <div class="dish-desc">(Apple caramel tart with ice cream.)</div>
-              </div>
+            <div class="menu-card-final">
+                <h3 class="cat-title">The Core</h3>
+                <div class="item-line"><span>Control Rod Ribs</span> <span class="price">€45</span></div>
+                <div class="item-line"><span>Thermonuclear Tacos</span> <span class="price">€38</span></div>
             </div>
 
-          </div>
-
-          <!-- Colonne droite : To Pair -->
-          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
-
-            <div class="menu-category">
-              <div class="category-title">To Pair</div>
-              <div class="dish-item">
-                <div class="dish-name">Dom Pérignon Champagne&nbsp;€35/glass</div>
-                <div class="dish-desc">Perfect pairing for foie gras and mains.</div>
-              </div>
-              <div class="dish-item">
-                <div class="dish-name">Single-Origin Espresso&nbsp;€8</div>
-                <div class="dish-desc">Intense finish to complement desserts.</div>
-              </div>
+            <div class="menu-card-final">
+                <h3 class="cat-title">Decay</h3>
+                <div class="item-line"><span>Molten Lava Cake</span> <span class="price">€16</span></div>
+                <div class="item-line"><span>Half-Life Sorbet</span> <span class="price">€14</span></div>
             </div>
 
-          </div>
-
+            <div class="menu-card-final special">
+                <h3 class="cat-title">Coolants</h3>
+                <div class="item-line"><span>Heavy Water D₂O</span> <span class="price">€12</span></div>
+                <div class="item-line"><span>Cherenkov Blue</span> <span class="price">€15</span></div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
   <!-- Slide 10: Fun Fact -->
   <div class="slide" id="slide10">
