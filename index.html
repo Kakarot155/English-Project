@@ -210,7 +210,7 @@ p {
 
 .menu-title {
   font-size: 4rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-shadow: 0 4px 25px rgba(127, 255, 180, 0.6);
   opacity: 0;
   animation: fadeInScale 1s ease forwards;
@@ -245,11 +245,12 @@ p {
   gap: 30px;
   padding: 10px;
   min-width: min-content;
+  justify-content: center;
 }
 
 .menu-category {
   min-width: 320px;
-  max-width: 350px;
+  max-width: 380px;
   background: linear-gradient(145deg, rgba(15, 35, 65, 0.92), rgba(25, 55, 95, 0.88));
   border: 2px solid rgba(100, 200, 255, 0.3);
   border-radius: 20px;
@@ -455,7 +456,7 @@ p {
     <div class="content">
       <h1 class="text-line">Too hard to <span class="accent-yellow">understand</span>?</h1>
       <p class="text-line"><span class="highlight">Museum</span></p>
-      <p class="text-line"><span class="accent-blue">Buffet</span></p>
+      <p class="text-line"><span class="accent-blue">Restaurant</span></p>
       <p class="text-line"><span class="accent-yellow">Educative</span></p>
       <p class="text-line"><span class="highlight">Riskless</span></p>
     </div>
@@ -466,8 +467,8 @@ p {
     <canvas id="canvas7"></canvas>
     <div class="content">
       <h1 class="text-line">The <span class="highlight">Fission Feast</span></h1>
-      <p class="text-line"><span class="accent-blue">Slavic</span> food</p>
-      <p class="text-line"><span class="accent-yellow">Chic</span></p>
+      <p class="text-line"><span class="accent-blue">Chic</span> experience</p>
+      <p class="text-line"><span class="accent-yellow">High Quality</span></p>
       <p class="text-line"><span class="highlight">Pedagogical</span></p>
       <p class="text-line"><span class="accent-blue">Unusual</span></p>
     </div>
@@ -485,203 +486,81 @@ p {
     </div>
   </div>
 
-  <!-- Slide 9: Menu -->
+  <!-- Slide 9: Restaurant Menu -->
   <div class="slide" id="slide9">
     <canvas id="canvas9"></canvas>
     <div class="menu-container">
-      <h1 class="menu-title">The <span class="highlight">Fission Feast</span> Menu</h1>
-      
+
+      <h1 class="menu-title">Exquisite <span class="highlight">Tasting Menu</span></h1>
+      <p style="font-size:1.5rem; margin-bottom:35px; opacity:0.9;">
+       
+      </p>
+
       <div class="menu-scroll-container">
         <div class="menu-grid">
-          
-          <!-- Starters -->
-          <div class="menu-category">
-            <div class="category-title">Starters</div>
-            <div class="dish-item">
-              <div class="dish-name">Zakuski</div>
-              <div class="dish-desc">Traditional appetizer platter</div>
+
+          <!-- Colonne gauche : Amuse-Bouche + Starters -->
+          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
+
+            <!-- Amuse-Bouche -->
+            <div class="menu-category">
+              <div class="category-title">Amuse-Bouche</div>
+              <div class="dish-item">
+                <div class="dish-name">Artisanal Duck Foie Gras&nbsp;€28</div>
+                <div class="dish-desc">(Smooth duck liver with brioche.)</div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-name">Caramelized Onion Soup&nbsp;€24</div>
+                <div class="dish-desc">(Rich onions with melted cheese.)</div>
+              </div>
             </div>
-            <div class="dish-item">
-              <div class="dish-name">Borscht</div>
-              <div class="dish-desc">Beet soup shots</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Blini</div>
-              <div class="dish-desc">Fluffy pancakes</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Pirozhki</div>
-              <div class="dish-desc">Stuffed pastry buns</div>
+
+            <!-- Starters -->
+            <div class="menu-category">
+              <div class="category-title">Starters</div>
+              <div class="dish-item">
+                <div class="dish-name">Boeuf Bourguignon&nbsp;€68</div>
+                <div class="dish-desc">(Tender beef in red wine sauce.)</div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-name">Duck Confit&nbsp;€72</div>
+                <div class="dish-desc">(Crispy duck with truffle potatoes.)</div>
+              </div>
             </div>
           </div>
 
-          <!-- Dumplings -->
-          <div class="menu-category">
-            <div class="category-title">Dumplings</div>
-            <div class="dish-item">
-              <div class="dish-name">Pelmeni</div>
-              <div class="dish-desc">Siberian meat dumplings</div>
+          <!-- Colonne centre : Desserts -->
+          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
+
+            <div class="menu-category">
+              <div class="category-title">Desserts</div>
+              <div class="dish-item">
+                <div class="dish-name">Vanilla Crème Brûlée&nbsp;€22</div>
+                <div class="dish-desc">(Creamy custard with caramel top.)</div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-name">Tarte Tatin&nbsp;€24</div>
+                <div class="dish-desc">(Apple caramel tart with ice cream.)</div>
+              </div>
             </div>
-            <div class="dish-item">
-              <div class="dish-name">Pierogi</div>
-              <div class="dish-desc">Polish filled dumplings</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Vareniki</div>
-              <div class="dish-desc">Ukrainian sweet dumplings</div>
-            </div>
+
           </div>
 
-          <!-- Soups -->
-          <div class="menu-category">
-            <div class="category-title">Soups</div>
-            <div class="dish-item">
-              <div class="dish-name">Solyanka</div>
-              <div class="dish-desc">Spicy sour soup</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Shchi</div>
-              <div class="dish-desc">Cabbage soup</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Ukha</div>
-              <div class="dish-desc">Fish broth</div>
-            </div>
-          </div>
+          <!-- Colonne droite : To Pair -->
+          <div style="display:flex; flex-direction:column; gap:30px; min-width:340px; max-width:380px;">
 
-          <!-- Main Courses -->
-          <div class="menu-category">
-            <div class="category-title">Mains</div>
-            <div class="dish-item">
-              <div class="dish-name">Shashlik</div>
-              <div class="dish-desc">Grilled meat skewers</div>
+            <div class="menu-category">
+              <div class="category-title">To Pair</div>
+              <div class="dish-item">
+                <div class="dish-name">Dom Pérignon Champagne&nbsp;€35/glass</div>
+                <div class="dish-desc">Perfect pairing for foie gras and mains.</div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-name">Single-Origin Espresso&nbsp;€8</div>
+                <div class="dish-desc">Intense finish to complement desserts.</div>
+              </div>
             </div>
-            <div class="dish-item">
-              <div class="dish-name">Golubtsy</div>
-              <div class="dish-desc">Stuffed cabbage rolls</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Bigos</div>
-              <div class="dish-desc">Hunter's stew</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kotlety</div>
-              <div class="dish-desc">Meat cutlets</div>
-            </div>
-          </div>
 
-          <!-- Sides -->
-          <div class="menu-category">
-            <div class="category-title">Sides</div>
-            <div class="dish-item">
-              <div class="dish-name">Kasha</div>
-              <div class="dish-desc">Buckwheat porridge</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kartoshka</div>
-              <div class="dish-desc">Roasted potatoes</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kapusta</div>
-              <div class="dish-desc">Braised red cabbage</div>
-            </div>
-          </div>
-
-          <!-- Salads -->
-          <div class="menu-category">
-            <div class="category-title">Salads</div>
-            <div class="dish-item">
-              <div class="dish-name">Olivier</div>
-              <div class="dish-desc">Potato salad</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Vinegret</div>
-              <div class="dish-desc">Beet vegetable salad</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Sałatka</div>
-              <div class="dish-desc">Cucumber dill salad</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kiszone</div>
-              <div class="dish-desc">Assorted pickles</div>
-            </div>
-          </div>
-
-          <!-- Breads -->
-          <div class="menu-category">
-            <div class="category-title">Breads</div>
-            <div class="dish-item">
-              <div class="dish-name">Borodinsky</div>
-              <div class="dish-desc">Dark rye bread</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Pumpernickel</div>
-              <div class="dish-desc">Dense German bread</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kalach</div>
-              <div class="dish-desc">Round white bread</div>
-            </div>
-          </div>
-
-          <!-- Desserts -->
-          <div class="menu-category">
-            <div class="category-title">Desserts</div>
-            <div class="dish-item">
-              <div class="dish-name">Syrniki</div>
-              <div class="dish-desc">Cheese pancakes</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Medovik</div>
-              <div class="dish-desc">Honey layer cake</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Makowiec</div>
-              <div class="dish-desc">Poppy seed roll</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Pączki</div>
-              <div class="dish-desc">Filled doughnuts</div>
-            </div>
-          </div>
-
-          <!-- Beverages -->
-          <div class="menu-category">
-            <div class="category-title">Beverages</div>
-            <div class="dish-item">
-              <div class="dish-name">Kvass</div>
-              <div class="dish-desc">Fermented bread drink</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Kompot</div>
-              <div class="dish-desc">Fruit infusion</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Sbiten</div>
-              <div class="dish-desc">Honey spice drink</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Vodka</div>
-              <div class="dish-desc">Premium selection</div>
-            </div>
-          </div>
-
-          <!-- Specials -->
-          <div class="menu-category">
-            <div class="category-title">Specials</div>
-            <div class="dish-item">
-              <div class="dish-name">Beef Stroganoff</div>
-              <div class="dish-desc">Creamy beef strips</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Chicken Kiev</div>
-              <div class="dish-desc">Butter-filled cutlet</div>
-            </div>
-            <div class="dish-item">
-              <div class="dish-name">Plov</div>
-              <div class="dish-desc">Seasoned rice pilaf</div>
-            </div>
           </div>
 
         </div>
@@ -1352,76 +1231,29 @@ function animateSlide10() {
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 1.2,
       vy: (Math.random() - 0.5) * 1.2,
-      size: 3 + Math.random() * 6,
-      hue: 40 + Math.random() * 80,
-      rotation: 0,
-      rotationSpeed: 0.02 + Math.random() * 0.03
+      size: 2 + Math.random() * 3
     });
   }
   
-  let time = 0;
-  
   function animate() {
-    const bgGrad = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, canvas.width);
-    bgGrad.addColorStop(0, 'rgba(15, 25, 45, 0.98)');
-    bgGrad.addColorStop(1, 'rgba(5, 10, 25, 0.98)');
-    ctx.fillStyle = bgGrad;
+    ctx.fillStyle = 'rgba(5, 10, 20, 0.95)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    time += 0.01;
     
     atoms.forEach(atom => {
       atom.x += atom.vx;
       atom.y += atom.vy;
-      atom.rotation += atom.rotationSpeed;
       
       if (atom.x < 0 || atom.x > canvas.width) atom.vx *= -1;
       if (atom.y < 0 || atom.y > canvas.height) atom.vy *= -1;
       
-      const glowGrad = ctx.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.size * 3);
-      glowGrad.addColorStop(0, `hsla(${atom.hue}, 80%, 60%, 0.6)`);
-      glowGrad.addColorStop(1, `hsla(${atom.hue}, 70%, 50%, 0)`);
-      ctx.fillStyle = glowGrad;
+      const grad = ctx.createRadialGradient(atom.x, atom.y, 0, atom.x, atom.y, atom.size * 4);
+      grad.addColorStop(0, 'rgba(127, 255, 180, 0.9)');
+      grad.addColorStop(1, 'rgba(127, 255, 180, 0)');
+      ctx.fillStyle = grad;
       ctx.beginPath();
       ctx.arc(atom.x, atom.y, atom.size * 3, 0, Math.PI * 2);
       ctx.fill();
-      
-      ctx.save();
-      ctx.translate(atom.x, atom.y);
-      ctx.rotate(atom.rotation);
-      
-      ctx.strokeStyle = `hsla(${atom.hue}, 90%, 70%, 0.7)`;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.arc(0, 0, atom.size * 2, 0, Math.PI * 2);
-      ctx.stroke();
-      
-      for (let i = 0; i < 3; i++) {
-        const angle = (Math.PI * 2 * i) / 3 + atom.rotation;
-        const x = Math.cos(angle) * atom.size * 2;
-        const y = Math.sin(angle) * atom.size * 2;
-        
-        ctx.fillStyle = `hsla(${atom.hue + 30}, 90%, 80%, 0.9)`;
-        ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      
-      ctx.restore();
     });
-    
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const pulse = Math.sin(time * 2) * 0.2 + 0.8;
-    
-    const coreGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 120);
-    coreGrad.addColorStop(0, `rgba(255, 217, 102, ${pulse * 0.3})`);
-    coreGrad.addColorStop(0.5, `rgba(255, 150, 100, ${pulse * 0.2})`);
-    coreGrad.addColorStop(1, 'rgba(255, 100, 150, 0)');
-    ctx.fillStyle = coreGrad;
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 120, 0, Math.PI * 2);
-    ctx.fill();
     
     if (currentSlide === 9) requestAnimationFrame(animate);
   }
@@ -1429,7 +1261,9 @@ function animateSlide10() {
   animate();
 }
 
+// lancer la première animation
 initSlideAnimation(0);
 </script>
+
 </body>
 </html>
